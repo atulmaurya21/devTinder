@@ -15,7 +15,7 @@ app.get("/getUserData", (req, res) => {
   res.send("Data sent by delete ");
 });
 
-//for error handling
+//for error handling toward wild card handle
 
 app.listen(3000, () => {
   console.log("server is successfully  listening on port no 3000");
