@@ -1,25 +1,21 @@
 const express = require("express");
 const app = express();
-const {getAuth, userAuth} = require("./middleware/auth")
+const { getAuth, userAuth } = require("./middleware/auth");
 
-
-app.use("/admin", getAuth);
-
-app.get("/admin/getAllUser", (req, res) => {
- res.send("All data send")
+//error handling
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("something went wrong");
+  }
 });
+app.get("/getUserData", (req, res) => {
+  //Logic for DB call and get user  data
+  throw new Error("dfghjnkml");
 
-app.get("/admin/deleteUser", (req, res) => {
-    res.send("Data sent by delete ");
-});
-// Basically we use userAuth middleware for a particular route
-
-app.post("/User/login", (req, res) => {
-  res.send("user login successfully ")
-})
-app.get("/User/getdata",userAuth, (req, res) => {
   res.send("Data sent by delete ");
 });
+
+//for error handling
 
 app.listen(3000, () => {
   console.log("server is successfully  listening on port no 3000");
