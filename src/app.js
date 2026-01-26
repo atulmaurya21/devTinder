@@ -3,34 +3,26 @@ console.log("Server start ");
 
 const app = express();
 
+// app.get("/user", (req, res) => {
 
-// app.use("/user", (req, res) => {
-//     res.send("every handler")
+//     console.log(req.query);
+    
+//     res.send({
+//       firstName: "Atul ",
+//       lastName: "Kumar Maurya",
+//     });
 // })
 
-// This will only handle get call to /user
-app.get("/user", (req, res) => {
-    res.send({
-      firstName: "Atul ",
-      lastName: "Kumar Maurya",
-    });
-})
+// for dynamic route-> /user/123
+app.get("/user/:userID/:name/:pasword   ", (req, res) => {
+  console.log(req.params);
 
-app.post("/user", (req, res) => {
-    console.log("Save data to database");
-    
-  res.send("Data successfully saved to the database");
+  res.send({
+    firstName: "Atul ",
+    lastName: "Kumar Maurya",
+  });
 });
 
-
-app.use("/user", (req, res) => {
-    res.send("Data is sucessfully deleted");
-    
-})
-//this will match all the http method Api calls to /test
-app.use("/test",(req, res) => {
-    res.send("Hello from the server" )
-})
 
 
 app.listen(3000, () => {
