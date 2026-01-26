@@ -3,26 +3,16 @@ console.log("Server start ");
 
 const app = express();
 
-// app.get("/user", (req, res) => {
-
-//     console.log(req.query);
-    
-//     res.send({
-//       firstName: "Atul ",
-//       lastName: "Kumar Maurya",
-//     });
-// })
-
-// for dynamic route-> /user/123
-app.get("/user/:userID/:name/:pasword   ", (req, res) => {
-  console.log(req.params);
-
-  res.send({
-    firstName: "Atul ",
-    lastName: "Kumar Maurya",
-  });
+// multiple route handler
+app.use("/user", (req, res,next) => {
+  
+  // this callback function is called Route handler
+  console.log("Route handler")
+  next();
+  res.send("First route handler");
+}, (req, res) => {
+  res.send("@nd route handler")
 });
-
 
 
 app.listen(3000, () => {
