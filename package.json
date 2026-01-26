@@ -1,0 +1,20 @@
+{
+  "name": "devtinder",
+  "version": "1.0.0",
+  "description": "Dev Tinder is a platform where developers discover and connect with like-minded devs based on skills, interests, and goals.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "Developer",
+    "networking"
+  ],
+  "author": "Atul Kumar Maurya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.11"
+  }
+}
